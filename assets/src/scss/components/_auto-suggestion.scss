@@ -1,0 +1,220 @@
+body{
+  width: 500px;
+  margin: 0 auto;
+};
+
+*{
+  box-sizing: border-box;
+}
+
+$primary-color: blue;
+$light-primary-color: lighten( $primary-color, 40% );
+
+// @import '../../../scss/base';
+$prefix: "itonics";
+
+%loader {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  border-left: 3px solid $primary-color;
+  border-right: 2px solid $light-primary-color;
+  border-top: 2px solid $light-primary-color;
+  border-bottom: 2px solid $light-primary-color;
+  border-radius: 50%;
+  animation: load8 1.1s infinite linear;
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+
+%user-chip{
+  padding: 10px;
+
+  &.#{$prefix}-autocomplete-active,
+  &:hover {
+    background: #eae8e8;
+  }
+
+  .#{$prefix}-autocomplet-img{
+    width: 30px;
+    height: 30px;
+    margin-top: 3px;
+    float: left;
+    background-size: cover;
+    border-radius: 50%;
+
+
+    + div{
+      overflow: hidden;
+      padding-left: 10px;
+    }
+
+  }
+
+  span{
+    display: block;
+
+    &.#{$prefix}-autocomplete-group{
+      line-height: 1.1;
+    }
+
+    &.#{$prefix}-autocomplete-name{
+      color: #515151;
+      font-weight: 600;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      strong{
+        font-weight: bold;
+      };
+    }; 
+
+     i:before {
+        font-size: 12px;
+    }
+  }
+
+}
+
+
+
+.#{$prefix}-fetching{
+  position: relative;
+  pointer-events: none;
+  cursor: not-allowed;
+  
+  &::after{
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    @extend %loader;
+  }
+}
+
+.#{$prefix}-auto-suggestion {
+  width: 100%;
+  min-height: 45px;
+  padding: 0 15px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+
+
+.#{$prefix}-autocomplete-wrapper {
+
+  .#{$prefix}-wrapper-with-input-n-list{
+    position: relative;
+    margin-top: 10px;
+  }
+
+
+   input{
+    height: 40px;
+    line-height: 40px;
+    padding: 0 12px;
+    background: #fff;
+    border: thin solid #e0e7ee;
+    box-shadow: inset -1px 0 0 0 rgb(224 231 238 / 40%);
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 5px 12px;
+    outline: 0;
+    font-family: Source Sans Pro,serif;
+    font-size: 14px;
+    border-radius: 3px;
+    width: 100%;
+   };
+   
+  .#{$prefix}-autocomplete-user-chips {
+    display: flex;
+    margin: 0 -3px;
+    flex-wrap: wrap;
+    
+
+    a {
+      flex: 0 0 auto;
+      width: 33.333334%;
+      padding: 3px;
+      
+      &:hover{
+        text-decoration: none;
+      }
+
+      > div{
+        border: 1px solid #d8e2eb;
+        position: relative;
+        padding: 5px 23px 5px 8px;
+        @extend %user-chip;
+
+          .#{$prefix}-autocomplete-user-chip-remove{
+            position: absolute;
+            left: calc( 100% - 20px);
+            top: 50%;
+            transform: translateY(-50%);
+          }
+      }
+
+    
+
+    }
+  }
+
+  .#{$prefix}-autocomplete-items-list {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    background: #fff;
+
+    > div {
+      display: block;
+      
+      border-bottom: 1px solid #f1f1f1;
+      border-left: 1px solid #f1f1f1;
+      border-right: 1px solid #f1f1f1;
+      text-decoration: none;
+      color: #000;
+      text-transform: capitalize;
+      cursor: pointer;
+//       align-items: center;
+//       display: flex;
+
+      @extend %user-chip;
+    }
+
+    p {
+      font-size: 12px;
+      color: #3c3c3c;
+      padding: 5px;
+      background-color: #eff0f1;
+      margin: 0;
+    }
+  }
+}
+
+

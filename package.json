@@ -1,0 +1,52 @@
+{
+  "name": "nucleus-dynamic-board",
+  "version": "1.0.0",
+  "description": "Visualization data in board structure. x-axis and y-axis data  and label are dynamic.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --progress --watch --mode=development",
+    "build": "webpack --progress --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "json-server --watch db.json --port 3004"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/minrai/nucleus-dynamic-board.git"
+  },
+  "keywords": [
+    "board",
+    "d3",
+    "visualization"
+  ],
+  "author": "itonics",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/minrai/nucleus-dynamic-board#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "autoprefixer": "^9.7.0",
+    "babel-loader": "^8.2.2",
+    "browser-sync": "^2.26.13",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "copy-webpack-plugin": "^5.1.2",
+    "css-loader": "^3.6.0",
+    "cssnano": "^4.1.10",
+    "file-loader": "^5.0.2",
+    "imagemin-webpack": "^5.1.1",
+    "json-server": "^0.16.3",
+    "mini-css-extract-plugin": "^0.8.2",
+    "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.30.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-private-methods": "^7.12.1",
+    "jquery": "^3.5.1",
+    "lodash": "^4.17.20"
+  }
+}
